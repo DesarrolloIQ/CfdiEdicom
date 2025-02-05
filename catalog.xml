@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="https://ediwinws.sedeb2b.com/EdiwinWS/services/EdiwinIntegration?wsdl" uri="xml-resources/web-service-references/EdiwinIntegration/wsdl/ediwinws.sedeb2b.com/EdiwinWS/services/EdiwinIntegration.wsdl"/>
+</catalog>

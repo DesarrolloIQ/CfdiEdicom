@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.TiposCfdRetenciones" table="TIPOS_CFD_RETENCIONES" catalog="xsa">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresas" class="com.iq.pojos.xsa.Empresas" fetch="select">
+            <column name="idEMPRESA" not-null="true" />
+        </many-to-one>
+       
+        <many-to-one name="conectorAdaptadorRetenciones" class="com.iq.pojos.xsa.ConectorAdaptadorRetenciones" fetch="select">
+            <column name="idCON_ADP_RETENCIONES" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" />
+        </property>
+        <property name="encoding" type="string">
+            <column name="ENCODING" length="20" />
+        </property>
+        <property name="produccion" type="boolean">
+            <column name="PRODUCCION" not-null="true" />
+        </property>
+        <set name="documentosRecibidosRetencioneses" inverse="true">
+            <key>
+                <column name="idTIPOCFD_RETENCIONES" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.DocumentosRecibidosRetenciones" />
+        </set>
+        <set name="usuariosRecepcionRetencioneses" inverse="true">
+            <key>
+                <column name="idTIPOCFD_RETENCIONES" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.UsuariosRecepcionRetenciones" />
+        </set>
+        <set name="cfdsRetencionesTests" inverse="true">
+            <key>
+                <column name="idTIPOCFD_RETENCION" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.CfdsRetencionesTest" />
+        </set>
+        <set name="retencionesPlantillases" inverse="true">
+            <key>
+                <column name="idTIPO_CFD_RETENCION" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.RetencionesPlantillas" />
+        </set>
+    </class>
+</hibernate-mapping>

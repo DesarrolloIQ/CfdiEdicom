@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="descarga_xml_sat"/>
+  <table-filter match-name="CERTIFICADOS_EMPRESAS"/>
+  <table-filter match-name="CONFIGURACIONES"/>
+  <table-filter match-name="REGISTRO_METADATA_FILE"/>
+  <table-filter match-name="REGISTRO_PETICIONES_EMPRESA"/>
+  <table-filter match-name="EMPRESAS"/>
+  <table-filter match-name="TOKEN"/>
+  <table-filter match-name="METADATOS_SIN_CFDI_EMITIDO"/>
+  <table-filter match-name="CONTROL_DESCARGAS"/>
+</hibernate-reverse-engineering>

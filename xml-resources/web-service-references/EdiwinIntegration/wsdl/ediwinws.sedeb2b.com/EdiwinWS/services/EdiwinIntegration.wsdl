@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ediwinIntegration.service.ediwinws.edicom.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ediwinIntegration.service.ediwinws.edicom.com" xmlns:intf="http://ediwinIntegration.service.ediwinws.edicom.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by EdiwinWS-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ediwinIntegration.service.ediwinws.edicom.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="publishDocument">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="group" type="xsd:string"/>
+      <element name="publishType" type="xsd:int"/>
+      <element name="message" type="xsd:base64Binary"/>
+      <element name="process" type="xsd:string"/>
+      <element name="saveOriginalMessage" type="xsd:boolean"/>
+      <element name="sendDocument" type="xsd:boolean"/>
+      <element name="returnData" type="xsd:boolean"/>
+      <element name="returnDataType" type="xsd:int"/>
+      <element name="returnDataProcess" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="profileParameters" type="impl:Param"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Param">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="value" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="publishDocumentResponse">
+    <complexType>
+     <sequence>
+      <element name="publishDocumentReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Error">
+    <sequence>
+     <element name="cod" type="xsd:int"/>
+     <element name="text" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="ArrayOfError">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="errors" type="impl:Error"/>
+    </sequence>
+   </complexType>
+   <complexType name="EdiwinIntegrationException">
+    <sequence>
+     <element name="cod" type="xsd:int"/>
+     <element name="errors" nillable="true" type="impl:ArrayOfError"/>
+     <element name="text" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="fault" type="impl:EdiwinIntegrationException"/>
+   <element name="changeExtendedFieldValues">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="group" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="parameters" type="impl:OperationParam"/>
+      <element maxOccurs="unbounded" name="fieldValues" type="impl:Param"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="OperationParam">
+    <complexContent>
+     <extension base="impl:Param">
+      <sequence>
+       <element name="operator" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="changeExtendedFieldValuesResponse">
+    <complexType/>
+   </element>
+   <element name="transformData">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="group" type="xsd:string"/>
+      <element name="message" type="xsd:base64Binary"/>
+      <element name="process" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="transformDataResponse">
+    <complexType>
+     <sequence>
+      <element name="transformDataReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomData">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="group" type="xsd:string"/>
+      <element name="process" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="parameters" type="impl:OperationParam"/>
+      <element name="unzipResponse" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCustomDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getCustomDataReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUnzipDocument">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="group" type="xsd:string"/>
+      <element name="exportType" type="xsd:int"/>
+      <element name="idVolume" type="xsd:int"/>
+      <element maxOccurs="unbounded" name="parameters" type="impl:OperationParam"/>
+      <element maxOccurs="unbounded" name="reportList" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUnzipDocumentResponse">
+    <complexType>
+     <sequence>
+      <element name="getUnzipDocumentReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDocument">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="domain" type="xsd:string"/>
+      <element name="group" type="xsd:string"/>
+      <element name="exportType" type="xsd:int"/>
+      <element name="idVolume" type="xsd:int"/>
+      <element maxOccurs="unbounded" name="parameters" type="impl:OperationParam"/>
+      <element maxOccurs="unbounded" name="reportList" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getDocumentResponse">
+    <complexType>
+     <sequence>
+      <element name="getDocumentReturn" type="xsd:base64Binary"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getCustomDataRequest">
+
+      <wsdl:part element="impl:getCustomData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCustomDataResponse">
+
+      <wsdl:part element="impl:getCustomDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="transformDataRequest">
+
+      <wsdl:part element="impl:transformData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUnzipDocumentRequest">
+
+      <wsdl:part element="impl:getUnzipDocument" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="EdiwinIntegrationException">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeExtendedFieldValuesRequest">
+
+      <wsdl:part element="impl:changeExtendedFieldValues" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="publishDocumentResponse">
+
+      <wsdl:part element="impl:publishDocumentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDocumentRequest">
+
+      <wsdl:part element="impl:getDocument" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="transformDataResponse">
+
+      <wsdl:part element="impl:transformDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUnzipDocumentResponse">
+
+      <wsdl:part element="impl:getUnzipDocumentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDocumentResponse">
+
+      <wsdl:part element="impl:getDocumentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="publishDocumentRequest">
+
+      <wsdl:part element="impl:publishDocument" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeExtendedFieldValuesResponse">
+
+      <wsdl:part element="impl:changeExtendedFieldValuesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="EdiwinIntegration">
+
+      <wsdl:operation name="publishDocument">
+
+         <wsdl:input message="impl:publishDocumentRequest" name="publishDocumentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:publishDocumentResponse" name="publishDocumentResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EdiwinIntegrationException" name="EdiwinIntegrationException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeExtendedFieldValues">
+
+         <wsdl:input message="impl:changeExtendedFieldValuesRequest" name="changeExtendedFieldValuesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:changeExtendedFieldValuesResponse" name="changeExtendedFieldValuesResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EdiwinIntegrationException" name="EdiwinIntegrationException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transformData">
+
+         <wsdl:input message="impl:transformDataRequest" name="transformDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:transformDataResponse" name="transformDataResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EdiwinIntegrationException" name="EdiwinIntegrationException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomData">
+
+         <wsdl:input message="impl:getCustomDataRequest" name="getCustomDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCustomDataResponse" name="getCustomDataResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EdiwinIntegrationException" name="EdiwinIntegrationException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUnzipDocument">
+
+         <wsdl:input message="impl:getUnzipDocumentRequest" name="getUnzipDocumentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUnzipDocumentResponse" name="getUnzipDocumentResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EdiwinIntegrationException" name="EdiwinIntegrationException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDocument">
+
+         <wsdl:input message="impl:getDocumentRequest" name="getDocumentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getDocumentResponse" name="getDocumentResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:EdiwinIntegrationException" name="EdiwinIntegrationException">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="EdiwinIntegrationSoapBinding" type="impl:EdiwinIntegration">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="publishDocument">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="publishDocumentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="publishDocumentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EdiwinIntegrationException">
+
+            <wsdlsoap:fault name="EdiwinIntegrationException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="changeExtendedFieldValues">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changeExtendedFieldValuesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changeExtendedFieldValuesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EdiwinIntegrationException">
+
+            <wsdlsoap:fault name="EdiwinIntegrationException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transformData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="transformDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="transformDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EdiwinIntegrationException">
+
+            <wsdlsoap:fault name="EdiwinIntegrationException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getCustomData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCustomDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCustomDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EdiwinIntegrationException">
+
+            <wsdlsoap:fault name="EdiwinIntegrationException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUnzipDocument">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUnzipDocumentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUnzipDocumentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EdiwinIntegrationException">
+
+            <wsdlsoap:fault name="EdiwinIntegrationException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDocument">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDocumentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDocumentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="EdiwinIntegrationException">
+
+            <wsdlsoap:fault name="EdiwinIntegrationException" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="EdiwinIntegrationService">
+
+      <wsdl:port binding="impl:EdiwinIntegrationSoapBinding" name="EdiwinIntegration">
+
+         <wsdlsoap:address location="https://ediwinws.sedeb2b.com/EdiwinWS/services/EdiwinIntegration"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

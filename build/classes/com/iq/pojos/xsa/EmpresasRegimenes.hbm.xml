@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.EmpresasRegimenes" table="EMPRESAS_REGIMENES" catalog="xsa">
+        <composite-id name="id" class="com.iq.pojos.xsa.EmpresasRegimenesId">
+            <key-property name="idEmpresas" type="int">
+                <column name="idEMPRESAS" />
+            </key-property>
+            <key-property name="idRegimenes" type="int">
+                <column name="idREGIMENES" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

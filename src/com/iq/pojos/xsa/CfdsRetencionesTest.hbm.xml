@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.CfdsRetencionesTest" table="CFDS_RETENCIONES_TEST" catalog="xsa">
+        <id name="idCfdRetencionTest" type="java.lang.Integer">
+            <column name="idCFD_RETENCION_TEST" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tiposCfdRetenciones" class="com.iq.pojos.xsa.TiposCfdRetenciones" fetch="select">
+            <column name="idTIPOCFD_RETENCION" not-null="true" />
+        </many-to-one>
+        <property name="dateInsert" type="timestamp">
+            <column name="DATE_INSERT" length="19" not-null="true" />
+        </property>
+        <property name="idEmpresa" type="int">
+            <column name="idEMPRESA" not-null="true" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="UUID" length="72" not-null="true" />
+        </property>
+        <property name="idPlantilla" type="java.lang.Integer">
+            <column name="idPLANTILLA" />
+        </property>
+        <property name="rfcEmisor" type="string">
+            <column name="RFC_EMISOR" length="13" not-null="true" />
+        </property>
+        <property name="rfcReceptor" type="string">
+            <column name="RFC_RECEPTOR" length="13" not-null="true" />
+        </property>
+        <set name="xmlsRetencionesTests" inverse="true">
+            <key>
+                <column name="idCFD_RETENCION_TEST" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.XmlsRetencionesTest" />
+        </set>
+    </class>
+</hibernate-mapping>

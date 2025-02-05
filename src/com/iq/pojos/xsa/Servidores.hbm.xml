@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.Servidores" table="SERVIDORES" catalog="xsa">
+        <id name="idServidor" type="java.lang.Integer">
+            <column name="idSERVIDOR" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" not-null="true" />
+        </property>
+        <property name="host" type="string">
+            <column name="HOST" length="15" not-null="true" unique="true" />
+        </property>
+        <property name="ipVirtual" type="string">
+            <column name="IP_VIRTUAL" length="15" not-null="true" />
+        </property>
+        <property name="timeout" type="short">
+            <column name="TIMEOUT" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="8" not-null="true" />
+        </property>
+        <property name="tipo" type="java.lang.Integer">
+            <column name="TIPO" />
+        </property>
+        <property name="keyServidor" type="string">
+            <column name="KEY_SERVIDOR" length="40" />
+        </property>
+        <property name="keyXsa" type="string">
+            <column name="KEY_XSA" length="50" />
+        </property>
+        <set name="servicioses" inverse="true">
+            <key>
+                <column name="idSERVIDOR" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.Servicios" />
+        </set>
+    </class>
+</hibernate-mapping>

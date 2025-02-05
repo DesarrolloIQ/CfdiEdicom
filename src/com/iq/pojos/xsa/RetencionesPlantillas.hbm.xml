@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.RetencionesPlantillas" table="RETENCIONES_PLANTILLAS" catalog="xsa">
+        <id name="idRetencionesPlantilla" type="java.lang.Integer">
+            <column name="idRETENCIONES_PLANTILLA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tiposCfdRetenciones" class="com.iq.pojos.xsa.TiposCfdRetenciones" fetch="select">
+            <column name="idTIPO_CFD_RETENCION" not-null="true" />
+        </many-to-one>
+        <property name="path" type="string">
+            <column name="PATH" length="16777215" not-null="true" />
+        </property>
+        <property name="isDefault" type="boolean">
+            <column name="IS_DEFAULT" not-null="true" />
+        </property>
+        <property name="creationDate" type="timestamp">
+            <column name="CREATION_DATE" length="19" not-null="true" />
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="FECHA_MODIFICACION" length="19" />
+        </property>
+        <set name="cfdsRetencioneses" inverse="true">
+            <key>
+                <column name="idPLANTILLA_RETENCION" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.CfdsRetenciones" />
+        </set>
+    </class>
+</hibernate-mapping>

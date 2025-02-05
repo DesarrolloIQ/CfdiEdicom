@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.Complementos" table="COMPLEMENTOS" catalog="xsa">
+        <id name="idComplemento" type="java.lang.Integer">
+            <column name="idCOMPLEMENTO" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" not-null="true" />
+        </property>
+        <property name="xsltCadena" type="string">
+            <column name="XSLT_CADENA" length="16777215" not-null="true" />
+        </property>
+        <property name="orden" type="int">
+            <column name="ORDEN" not-null="true" />
+        </property>
+        <property name="namespace" type="string">
+            <column name="NAMESPACE" length="65535" not-null="true" />
+        </property>
+        <property name="referenciaNamespace" type="string">
+            <column name="REFERENCIA_NAMESPACE" length="65535" not-null="true" />
+        </property>
+        <property name="prefijo" type="string">
+            <column name="PREFIJO" not-null="true" />
+        </property>
+        <property name="reloadXsltCadena" type="boolean">
+            <column name="RELOAD_XSLT_CADENA" not-null="true" />
+        </property>
+        <property name="nivel" type="string">
+            <column name="NIVEL" length="12" not-null="true" />
+        </property>
+        <set name="tiposCfdComplementoses" inverse="true">
+            <key>
+                <column name="idCOMPLEMENTO" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.TiposCfdComplementos" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.FoliosEmpresas" table="FOLIOS_EMPRESAS" catalog="xsa">
+        <id name="idFolioserie" type="java.lang.Integer">
+            <column name="idFOLIOSERIE" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresas" class="com.iq.pojos.xsa.Empresas" fetch="select">
+            <column name="idEMPRESA" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposCfd" class="com.iq.pojos.xsa.TiposCfd" fetch="select">
+            <column name="idTIPOCFD" />
+        </many-to-one>
+        <property name="serie" type="string">
+            <column name="SERIE" />
+        </property>
+        <property name="inicio" type="long">
+            <column name="INICIO" not-null="true" />
+        </property>
+        <property name="final_" type="long">
+            <column name="FINAL" not-null="true" />
+        </property>
+        <property name="numeroAprobacion" type="java.lang.Long">
+            <column name="NUMERO_APROBACION" />
+        </property>
+        <property name="anioAprobacion" type="java.lang.Integer">
+            <column name="ANIO_APROBACION" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="8">
+                <comment>Estado de la serie</comment>
+            </column>
+        </property>
+        <property name="ultimaVerificacion" type="timestamp">
+            <column name="ULTIMA_VERIFICACION" length="19" not-null="true">
+                <comment>Fecha de &#195;&#186;ltima verificaci&#195;&#179;n</comment>
+            </column>
+        </property>
+        <property name="ultimoFolioBloque" type="java.lang.Long">
+            <column name="ULTIMO_FOLIO_BLOQUE" />
+        </property>
+        <property name="tamanioBloque" type="big_decimal">
+            <column name="TAMANIO_BLOQUE" precision="6" />
+        </property>
+        <set name="foliosHistorials" inverse="true">
+            <key>
+                <column name="idFOLIOSERIE" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.FoliosHistorial" />
+        </set>
+    </class>
+</hibernate-mapping>

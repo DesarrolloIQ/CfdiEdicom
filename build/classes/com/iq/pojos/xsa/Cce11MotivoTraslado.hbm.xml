@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.Cce11MotivoTraslado" table="CCE11_MOTIVO_TRASLADO" catalog="xsa">
+        <id name="idMotivoTraslado" type="java.lang.Integer">
+            <column name="idMOTIVO_TRASLADO" />
+            <generator class="identity" />
+        </id>
+        <property name="claveMotivoTraslado" type="string">
+            <column name="CLAVE_MOTIVO_TRASLADO" length="4" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.TiposCfdComplementos" table="TIPOS_CFD_COMPLEMENTOS" catalog="xsa">
+        <composite-id name="id" class="com.iq.pojos.xsa.TiposCfdComplementosId">
+            <key-property name="idComplemento" type="int">
+                <column name="idCOMPLEMENTO" />
+            </key-property>
+            <key-property name="idTipocfd" type="int">
+                <column name="idTIPOCFD" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="complementos" class="com.iq.pojos.xsa.Complementos" update="false" insert="false" fetch="select">
+            <column name="idCOMPLEMENTO" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposCfd" class="com.iq.pojos.xsa.TiposCfd" update="false" insert="false" fetch="select">
+            <column name="idTIPOCFD" not-null="true" />
+        </many-to-one>
+        <property name="adaptador" type="string">
+            <column name="ADAPTADOR" length="16777215" not-null="true" />
+        </property>
+        <property name="reloadAdaptador" type="boolean">
+            <column name="RELOAD_ADAPTADOR" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

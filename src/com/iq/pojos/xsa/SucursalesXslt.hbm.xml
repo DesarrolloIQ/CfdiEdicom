@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.SucursalesXslt" table="SUCURSALES_XSLT" catalog="xsa">
+        <id name="idPlantilla" type="java.lang.Integer">
+            <column name="idPLANTILLA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tiposCfd" class="com.iq.pojos.xsa.TiposCfd" fetch="select">
+            <column name="idTIPOCFD" not-null="true" />
+        </many-to-one>
+        <property name="idSucursal" type="java.lang.Integer">
+            <column name="idSUCURSAL" />
+        </property>
+        <property name="xslt" type="string">
+            <column name="XSLT" length="16777215" />
+        </property>
+        <property name="margenes" type="string">
+            <column name="MARGENES" />
+        </property>
+        <property name="tamanio" type="string">
+            <column name="TAMANIO" />
+        </property>
+        <property name="encabezado" type="string">
+            <column name="ENCABEZADO" length="65535" />
+        </property>
+        <property name="reload" type="java.lang.Boolean">
+            <column name="RELOAD" />
+        </property>
+        <property name="reloadDelivery" type="java.lang.Boolean">
+            <column name="RELOAD_DELIVERY" />
+        </property>
+        <property name="anchoHtml" type="java.lang.Integer">
+            <column name="ANCHO_HTML" />
+        </property>
+        <property name="esDefault" type="java.lang.Boolean">
+            <column name="esDEFAULT" />
+        </property>
+        <property name="fechaAlta" type="timestamp">
+            <column name="FECHA_ALTA" length="19" not-null="true" />
+        </property>
+        <property name="idExterno" type="string">
+            <column name="ID_EXTERNO" />
+        </property>
+        <property name="engineJasper" type="boolean">
+            <column name="ENGINE_JASPER" not-null="true" />
+        </property>
+        <property name="idConfiguracion" type="java.lang.Integer">
+            <column name="idConfiguracion">
+                <comment>Identificador de configuraci&#195;&#179;n</comment>
+            </column>
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="FECHA_MODIFICACION" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

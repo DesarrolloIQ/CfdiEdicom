@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2024 2:09:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.descarga.Configuraciones" table="CONFIGURACIONES" catalog="descarga_xml_sat" optimistic-lock="version">
+        <id name="idConfiguraciones" type="java.lang.Integer">
+            <column name="idCONFIGURACIONES" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresas" class="com.iq.pojos.descarga.Empresas" fetch="select">
+            <column name="EMPRESAS_idEMPRESA" not-null="true" />
+        </many-to-one>
+        <property name="propiedad" type="string">
+            <column name="PROPIEDAD" />
+        </property>
+        <property name="valor" type="string">
+            <column name="VALOR" length="65535" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" length="65535" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="TIPO" length="8" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.ClientesAddendas" table="CLIENTES_ADDENDAS" catalog="xsa">
+        <id name="idAddenda" type="java.lang.Integer">
+            <column name="idADDENDA" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clientes" class="com.iq.pojos.xsa.Clientes" fetch="select">
+            <column name="idCLIENTE" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tiposCfd" class="com.iq.pojos.xsa.TiposCfd" fetch="select">
+            <column name="idTIPOCFD" />
+        </many-to-one>
+        <property name="tipo" type="string">
+            <column name="TIPO" length="7" not-null="true" />
+        </property>
+        <property name="fecha" type="timestamp">
+            <column name="FECHA" length="19" not-null="true" />
+        </property>
+        <property name="adaptador" type="string">
+            <column name="ADAPTADOR" length="16777215" not-null="true" />
+        </property>
+        <property name="idAddendaB2b" type="java.lang.Integer">
+            <column name="idADDENDA_B2B" />
+        </property>
+        <property name="vigencia" type="date">
+            <column name="VIGENCIA" length="10" />
+        </property>
+        <property name="tieneEnvio" type="java.lang.Boolean">
+            <column name="TIENE_ENVIO" />
+        </property>
+    </class>
+</hibernate-mapping>

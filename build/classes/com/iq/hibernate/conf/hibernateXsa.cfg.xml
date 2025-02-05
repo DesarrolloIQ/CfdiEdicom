@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>    
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/xsa?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">generator</property>
+    <property name="hibernate.connection.password">mysql</property>
+    
+    <mapping resource="com/iq/pojos/xsa/ReceptorRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/DocumentosRecibidos.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Cfds.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/CfdsRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ConfiguracionLayout.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ConectorAdaptador.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Sucursales.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/FoliosHistorial.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/CertificadosSucursales.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Cce11MotivoTraslado.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ErroresGeneracionRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Complementos.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Regimenes.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Empresas.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ComplementosRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Servicios.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/CustomerKeys.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Servidores.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/XmlsRetencionesTest.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Xmls.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/TiposCfd.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ClientesValoresSmtp.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/Clientes.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ClientesValoresSmtpRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/UsuariosRecepcionRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/DireccionesEnvio.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/SucursalesXslt.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/TiposCfdRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/EmpresasRegimenes.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/XmlsRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ErroresGeneracion.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ArchivosSincronizacion.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ClientesAddendas.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/DocumentosRecibidosRetenciones.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/MetodosRecepcion.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/UsuariosRecepcion.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/TiposCfdComplementos.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/DireccionesValoresSmtp.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/CatalogoPlantillas.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/RetencionesPlantillas.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/CfdsRetencionesTest.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/FoliosEmpresas.hbm.xml"/>
+    <mapping resource="com/iq/pojos/xsa/ConectorAdaptadorRetenciones.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

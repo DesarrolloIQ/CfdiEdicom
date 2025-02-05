@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+ 
+  <schema-selection match-catalog="xsa"/>
+  <table-filter match-name="TIPOS_CFD_COMPLEMENTOS"/>
+  <table-filter match-name="DIRECCIONES_VALORES_SMTP"/>
+  <table-filter match-name="SUCURSALES_XSLT"/>
+  <table-filter match-name="EMPRESAS_REGIMENES"/>
+  <table-filter match-name="CONECTOR_ADAPTADOR"/>
+  <table-filter match-name="SUCURSALES"/>
+  <table-filter match-name="CFDS_RETENCIONES"/>
+  <table-filter match-name="TIPOS_CFD_RETENCIONES"/>
+  <table-filter match-name="CONECTOR_ADAPTADOR_RETENCIONES"/>
+  <table-filter match-name="CFDS_RETENCIONES_TEST"/>
+  <table-filter match-name="RECEPTOR_RETENCIONES"/>
+  <table-filter match-name="COMPLEMENTOS_RETENCIONES"/>
+  <table-filter match-name="ERRORES_GENERACION"/>
+  <table-filter match-name="CLIENTES_VALORES_SMTP"/>
+  <table-filter match-name="CLIENTES_VALORES_SMTP_RETENCIONES"/>
+  <table-filter match-name="COMPLEMENTOS"/>
+  <table-filter match-name="CATALOGO_PLANTILLAS"/>
+  <table-filter match-name="USUARIOS_RECEPCION_RETENCIONES"/>
+  <table-filter match-name="SERVIDORES"/>
+  <table-filter match-name="XMLS_RETENCIONES"/>
+  <table-filter match-name="FOLIOS_EMPRESAS"/>
+  <table-filter match-name="DIRECCIONES_ENVIO"/>
+  <table-filter match-name="RETENCIONES_PLANTILLAS"/>
+  <table-filter match-name="ARCHIVOS_SINCRONIZACION"/>
+  <table-filter match-name="CERTIFICADOS_SUCURSALES"/>
+  <table-filter match-name="CUSTOMER_KEYS"/>
+  <table-filter match-name="CONFIGURACION_LAYOUT"/>
+  <table-filter match-name="CFDS"/>
+  <table-filter match-name="USUARIOS_RETENCION_METODOS_RECEPCION"/>
+  <table-filter match-name="METODOS_RECEPCION"/>
+  <table-filter match-name="FOLIOS_HISTORIAL"/>
+  <table-filter match-name="XMLS_RETENCIONES_TEST"/>
+  <table-filter match-name="ERRORES_GENERACION_RETENCIONES"/>
+  <table-filter match-name="CLIENTES_ADDENDAS"/>
+  <table-filter match-name="REGIMENES"/>
+  <table-filter match-name="USUARIOS_RECEPCION"/>
+  <table-filter match-name="SERVICIOS"/>
+  <table-filter match-name="DOCUMENTOS_RECIBIDOS"/>
+  <table-filter match-name="CCE11_MOTIVO_TRASLADO"/>
+  <table-filter match-name="CLIENTES"/>
+  <table-filter match-name="DOCUMENTOS_RECIBIDOS_RETENCIONES"/>
+  <table-filter match-name="EMPRESAS"/>
+  <table-filter match-name="TIPOS_CFD"/>
+  <table-filter match-name="XMLS"/>
+</hibernate-reverse-engineering>

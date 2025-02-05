@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2024 2:09:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.descarga.RegistroPeticionesEmpresa" table="REGISTRO_PETICIONES_EMPRESA" catalog="descarga_xml_sat" optimistic-lock="version">
+        <id name="idPeticion" type="java.lang.Integer">
+            <column name="idPETICION" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresas" class="com.iq.pojos.descarga.Empresas" fetch="select">
+            <column name="EMPRESAS_idEMPRESA" not-null="true" />
+        </many-to-one>
+        <property name="codigoPeticion" type="string">
+            <column name="CODIGO_PETICION" length="40" />
+        </property>
+        <property name="tipoProceso" type="string">
+            <column name="TIPO_PROCESO" length="14" />
+        </property>
+        <property name="tipoPeticion" type="string">
+            <column name="TIPO_PETICION" length="8" />
+        </property>
+        <property name="endToEmit" type="string">
+            <column name="END_TO_EMIT" length="7" />
+        </property>
+        <property name="tipoFormato" type="string">
+            <column name="TIPO_FORMATO" length="8" />
+        </property>
+        <property name="estadoPeticionBd" type="string">
+            <column name="ESTADO_PETICION_BD" length="12" />
+        </property>
+        <property name="noXmlmed" type="java.lang.Integer">
+            <column name="NoXMLMED" />
+        </property>
+        <property name="estadoSolicitudSat" type="java.lang.Character">
+            <column name="ESTADO_SOLICITUD_SAT" length="1" />
+        </property>
+        <property name="respuestaError" type="string">
+            <column name="RESPUESTA_ERROR" length="150" />
+        </property>
+        <property name="fechaInicial" type="timestamp">
+            <column name="FECHA_INICIAL" length="19" />
+        </property>
+        <property name="fechaFinal" type="timestamp">
+            <column name="FECHA_FINAL" length="19" />
+        </property>
+        <property name="fechaPeticion" type="timestamp">
+            <column name="FECHA_PETICION" length="19" />
+        </property>
+        <property name="estadoDescarga" type="java.lang.Character">
+            <column name="ESTADO_DESCARGA" length="1" />
+        </property>
+        <property name="noIntentos" type="java.lang.Integer">
+            <column name="no_INTENTOS" />
+        </property>
+        <set name="registroMetadataFiles" table="REGISTRO_METADATA_FILE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPETICION" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.descarga.RegistroMetadataFile" />
+        </set>
+    </class>
+</hibernate-mapping>

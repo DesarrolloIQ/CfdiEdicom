@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.CfdsRetenciones" table="CFDS_RETENCIONES" catalog="xsa">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="retencionesPlantillas" class="com.iq.pojos.xsa.RetencionesPlantillas" fetch="select">
+            <column name="idPLANTILLA_RETENCION" />
+        </many-to-one>
+        <property name="idSucursal" type="int">
+            <column name="idSUCURSAL" not-null="true" />
+        </property>
+        <property name="idTipocfdRetenciones" type="int">
+            <column name="idTIPOCFD_RETENCIONES" not-null="true" />
+        </property>
+        <property name="rfcEmisor" type="string">
+            <column name="RFC_EMISOR" length="13" />
+        </property>
+        <property name="rfcReceptor" type="string">
+            <column name="RFC_RECEPTOR" length="20" />
+        </property>
+        <property name="fechaModificacion" type="timestamp">
+            <column name="FECHA_MODIFICACION" length="19" not-null="true" />
+        </property>
+        <property name="fechaRecepcion" type="timestamp">
+            <column name="FECHA_RECEPCION" length="19" not-null="true" />
+        </property>
+        <property name="fechaGeneracion" type="timestamp">
+            <column name="FECHA_GENERACION" length="19" not-null="true" />
+        </property>
+        <property name="fechaCancelacion" type="timestamp">
+            <column name="FECHA_CANCELACION" length="19" />
+        </property>
+        <property name="fechaRetencion" type="timestamp">
+            <column name="FECHA_RETENCION" length="19" not-null="true" />
+        </property>
+        <property name="uuid" type="string">
+            <column name="UUID" length="36" not-null="true" unique="true" />
+        </property>
+        <property name="totalOperacion" type="big_decimal">
+            <column name="TOTAL_OPERACION" precision="20" scale="6" not-null="true" />
+        </property>
+        <property name="totalRetencion" type="big_decimal">
+            <column name="TOTAL_RETENCION" precision="20" scale="6" not-null="true" />
+        </property>
+        <property name="estadoFiscal" type="string">
+            <column name="ESTADO_FISCAL" length="9" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="13" />
+        </property>
+        <property name="cadenaOriginal" type="string">
+            <column name="CADENA_ORIGINAL" length="65535" />
+        </property>
+        <set name="xmlsRetencioneses" inverse="true">
+            <key>
+                <column name="idCFD_RETENCION" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.XmlsRetenciones" />
+        </set>
+        <set name="clientesValoresSmtpRetencioneses" inverse="true">
+            <key>
+                <column name="idRetenciones" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.ClientesValoresSmtpRetenciones" />
+        </set>
+        <set name="receptorRetencioneses" inverse="true">
+            <key>
+                <column name="idCFD_RETENCION" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.xsa.ReceptorRetenciones" />
+        </set>
+    </class>
+</hibernate-mapping>

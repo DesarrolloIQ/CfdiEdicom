@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.MetodosRecepcion" table="METODOS_RECEPCION" catalog="xsa">
+        <id name="idMetodo" type="java.lang.Integer">
+            <column name="idMETODO" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="DESCRIPCION" not-null="true" />
+        </property>
+        <!--
+        <set name="usuariosRecepcionRetencioneses" inverse="false" table="USUARIOS_RETENCION_METODOS_RECEPCION">
+            <key>
+                <column name="idMETODO" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.iq.pojos.xsa.UsuariosRecepcionRetenciones">
+                <column name="idUSUARIO_RETENCION" not-null="true" />
+            </many-to-many> 
+        </set>-->
+    </class>
+</hibernate-mapping>

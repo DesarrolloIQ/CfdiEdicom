@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.ClientesValoresSmtpRetenciones" table="CLIENTES_VALORES_SMTP_RETENCIONES" catalog="xsa">
+        <id name="idRetenciones" type="int">
+            <column name="idRetenciones" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cfdsRetenciones" class="com.iq.pojos.xsa.CfdsRetenciones" update="false" insert="false" fetch="select">
+            <column name="idRetenciones" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="para" type="string">
+            <column name="PARA" length="65535" />
+        </property>
+        <property name="asunto" type="string">
+            <column name="ASUNTO" />
+        </property>
+        <property name="cuerpoMensaje" type="string">
+            <column name="CUERPO_MENSAJE" length="65535" />
+        </property>
+        <property name="pdf" type="java.lang.Boolean">
+            <column name="PDF" />
+        </property>
+        <property name="xml" type="java.lang.Boolean">
+            <column name="XML" />
+        </property>
+        <property name="alternativo" type="string">
+            <column name="ALTERNATIVO" length="45" />
+        </property>
+        <property name="general" type="java.lang.Boolean">
+            <column name="GENERAL" />
+        </property>
+        <property name="zipFormat" type="java.lang.Boolean">
+            <column name="ZIP_FORMAT" />
+        </property>
+    </class>
+</hibernate-mapping>

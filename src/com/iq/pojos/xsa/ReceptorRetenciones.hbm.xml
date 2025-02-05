@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.ReceptorRetenciones" table="RECEPTOR_RETENCIONES" catalog="xsa">
+        <id name="idCfdRetencion" type="int">
+            <column name="idCFD_RETENCION" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cfdsRetenciones" class="com.iq.pojos.xsa.CfdsRetenciones" update="false" insert="false" fetch="select">
+            <column name="idCFD_RETENCION" not-null="true" unique="true" />
+        </many-to-one>
+        <property name="nacionalidad" type="string">
+            <column name="NACIONALIDAD" length="10" not-null="true" />
+        </property>
+        <property name="razonSocial" type="string">
+            <column name="RAZON_SOCIAL" length="300" />
+        </property>
+        <property name="rfc" type="string">
+            <column name="RFC" length="20" />
+        </property>
+        <property name="curp" type="string">
+            <column name="CURP" length="18" />
+        </property>
+    </class>
+</hibernate-mapping>

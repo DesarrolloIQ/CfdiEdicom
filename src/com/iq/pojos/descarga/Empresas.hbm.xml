@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2024 2:09:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.descarga.Empresas" table="EMPRESAS" catalog="descarga_xml_sat" optimistic-lock="version">
+        <id name="idEmpresa" type="java.lang.Integer">
+            <column name="idEMPRESA" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" not-null="true" />
+        </property>
+        <property name="rfc" type="string">
+            <column name="RFC" length="13" not-null="true" />
+        </property>
+        <property name="calle" type="string">
+            <column name="CALLE" />
+        </property>
+        <property name="numExterior" type="string">
+            <column name="NUM_EXTERIOR" />
+        </property>
+        <property name="numInterior" type="string">
+            <column name="NUM_INTERIOR" />
+        </property>
+        <property name="colonia" type="string">
+            <column name="COLONIA" />
+        </property>
+        <property name="localidad" type="string">
+            <column name="LOCALIDAD" />
+        </property>
+        <property name="referencia" type="string">
+            <column name="REFERENCIA" />
+        </property>
+        <property name="municipio" type="string">
+            <column name="MUNICIPIO" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" />
+        </property>
+        <property name="pais" type="string">
+            <column name="PAIS" />
+        </property>
+        <property name="cp" type="string">
+            <column name="CP" length="15" />
+        </property>
+        <property name="codigogln" type="string">
+            <column name="CODIGOGLN" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" />
+        </property>
+        <property name="curp" type="string">
+            <column name="CURP" length="18" />
+        </property>
+        <property name="regimenFiscal" type="string">
+            <column name="REGIMEN_FISCAL" />
+        </property>
+        <set name="certificadosEmpresases" table="CERTIFICADOS_EMPRESAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPRESAS_idEMPRESA" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.descarga.CertificadosEmpresas" />
+        </set>
+        <set name="controlDescargases" table="CONTROL_DESCARGAS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPRESAS_idEMPRESA" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.descarga.ControlDescargas" />
+        </set>
+        <set name="registroPeticionesEmpresas" table="REGISTRO_PETICIONES_EMPRESA" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPRESAS_idEMPRESA" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.descarga.RegistroPeticionesEmpresa" />
+        </set>
+        <set name="configuracioneses" table="CONFIGURACIONES" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="EMPRESAS_idEMPRESA" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.descarga.Configuraciones" />
+        </set>
+    </class>
+</hibernate-mapping>

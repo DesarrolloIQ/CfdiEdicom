@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 12, 2024 11:46:09 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.descarga.MetadatosSinCfdiEmitido" table="METADATOS_SIN_CFDI_EMITIDO" catalog="descarga_xml_sat" optimistic-lock="version">
+        <id name="idMetadato" type="java.lang.Integer">
+            <column name="idMETADATO" />
+            <generator class="identity" />
+        </id>
+        <property name="uuid" type="string">
+            <column name="UUID" length="36" not-null="true" />
+        </property>
+        <property name="rfcEmisor" type="string">
+            <column name="RFC_EMISOR" length="13" not-null="true" />
+        </property>
+        <property name="nombreEmisor" type="string">
+            <column name="NOMBRE_EMISOR" not-null="true" />
+        </property>
+        <property name="rfcReceptor" type="string">
+            <column name="RFC_RECEPTOR" length="13" not-null="true" />
+        </property>
+        <property name="nombreReceptor" type="string">
+            <column name="NOMBRE_RECEPTOR" not-null="true" />
+        </property>
+        <property name="rfcPac" type="string">
+            <column name="RFC_PAC" length="13" not-null="true" />
+        </property>
+        <property name="fechaEmision" type="timestamp">
+            <column name="FECHA_EMISION" length="19" not-null="true" />
+        </property>
+        <property name="fechaCertificacionSat" type="timestamp">
+            <column name="FECHA_CERTIFICACION_SAT" length="19" not-null="true" />
+        </property>
+        <property name="monto" type="big_decimal">
+            <column name="MONTO" precision="16" scale="6" not-null="true" />
+        </property>
+        <property name="efectoComprobante" type="string">
+            <column name="EFECTO_COMPROBANTE" length="8" not-null="true" />
+        </property>
+        <property name="estatus" type="boolean">
+            <column name="ESTATUS" not-null="true" />
+        </property>
+        <property name="fechaCancelacion" type="timestamp">
+            <column name="FECHA_CANCELACION" length="19" />
+        </property>
+        <property name="estadoMd" type="string">
+            <column name="ESTADO_MD" length="19" />
+        </property>
+        <property name="descripcionError" type="string">
+            <column name="DESCRIPCION_ERROR" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

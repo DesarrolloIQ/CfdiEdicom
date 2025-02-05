@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-may-2020 13:56:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.xsa.Regimenes" table="REGIMENES" catalog="xsa">
+        <id name="idRegimen" type="java.lang.Integer">
+            <column name="idREGIMEN" />
+            <generator class="identity" />
+        </id>
+        <property name="idEmpresa" type="java.lang.Integer">
+            <column name="idEMPRESA" />
+        </property>
+        <property name="regimen" type="string">
+            <column name="REGIMEN" length="256" not-null="true" />
+        </property>
+        <property name="tipoPersona" type="string">
+            <column name="TIPO_PERSONA" length="3" not-null="true" />
+        </property>
+        <property name="ligaInformacion" type="string">
+            <column name="LIGA_INFORMACION" />
+        </property>
+    </class>
+</hibernate-mapping>

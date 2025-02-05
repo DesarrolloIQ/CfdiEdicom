@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 27, 2024 2:09:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.iq.pojos.descarga.CertificadosEmpresas" table="CERTIFICADOS_EMPRESAS" catalog="descarga_xml_sat" optimistic-lock="version">
+        <id name="idCertificado" type="java.lang.Integer">
+            <column name="idCERTIFICADO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empresas" class="com.iq.pojos.descarga.Empresas" fetch="select">
+            <column name="EMPRESAS_idEMPRESA" not-null="true" />
+        </many-to-one>
+        <property name="pfx" type="string">
+            <column name="PFX" length="65535" not-null="true" />
+        </property>
+        <property name="passwd" type="string">
+            <column name="PASSWD" length="65535" not-null="true" />
+        </property>
+        <property name="vigenciaCertificado" type="timestamp">
+            <column name="VIGENCIA_CERTIFICADO" length="19" not-null="true" />
+        </property>
+        <property name="expiracionCertificado" type="string">
+            <column name="EXPIRACION_CERTIFICADO" length="2" not-null="true" />
+        </property>
+        <set name="tokens" table="TOKEN" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CERTIFICADOS_EMPRESAS_idCERTIFICADO" not-null="true" />
+            </key>
+            <one-to-many class="com.iq.pojos.descarga.Token" />
+        </set>
+    </class>
+</hibernate-mapping>
